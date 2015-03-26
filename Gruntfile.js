@@ -32,10 +32,6 @@ module.exports = function (grunt) {
                 nospawn: true,
                 livereload: true
             },
-            compass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass']
-            },
             livereload: {
                 options: {
                     livereload: grunt.option('livereloadport') || LIVERELOAD_PORT
@@ -132,21 +128,30 @@ module.exports = function (grunt) {
                 }
             }
         },
-        compass: {
-            options: {
-                sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: '<%= yeoman.app %>/bower_components',
-                relativeAssets: true
-            },
-            dist: {},
-            server: {
+        bowercopy: {
+            vendor: {
                 options: {
-                    debugInfo: true
+                    destPrefix: '<%= yeoman.app %>/scripts/vendor'
+                },
+                files: {
+                    'bootstrap': 'bootstrap/dist/css'
                 }
+            }
+        },
+        less: {
+            development: {
+                options: {
+                    compress: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'app/styles/',
+                        src: ['main.less'],
+                        dest: 'app/styles/css/',
+                        ext: '.css'
+                    }
+                ]
             }
         },
         // not enabled since usemin task does concat and uglify
@@ -269,7 +274,6 @@ module.exports = function (grunt) {
                 'clean:server',
                 'createDefaultTemplate',
                 'jst',
-                'compass:server',
                 'connect:test',
                 'open:test',
                 'watch'
@@ -280,7 +284,6 @@ module.exports = function (grunt) {
             'clean:server',
             'createDefaultTemplate',
             'jst',
-            'compass:server',
             'connect:livereload',
             'open:server',
             'watch'
@@ -293,7 +296,6 @@ module.exports = function (grunt) {
                 'clean:server',
                 'createDefaultTemplate',
                 'jst',
-                'compass',
                 'connect:test',
                 'mocha',
             ];
@@ -311,7 +313,6 @@ module.exports = function (grunt) {
         'clean:dist',
         'createDefaultTemplate',
         'jst',
-        'compass:dist',
         'useminPrepare',
         'imagemin',
         'htmlmin',
