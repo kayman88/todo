@@ -30,6 +30,8 @@
         "it": false,
         "assert": true,
         "expect": true,
-        "should": true
+        "should": true,
+        "require": false,
+        "define": false
     }
 }

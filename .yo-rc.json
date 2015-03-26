@@ -5,8 +5,8 @@
     "coffee": false,
     "testFramework": "mocha",
     "templateFramework": "lodash",
-    "compassBootstrap": true,
-    "includeRequireJS": false
+    "compassBootstrap": false,
+    "includeRequireJS": true
   },
   "generator-mocha": {}
 }

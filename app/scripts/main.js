@@ -1,18 +1,18 @@
-/*global ProyectoBackbone, $*/
+/*global require*/
+'use strict';
 
-
-window.ProyectoBackbone = {
-    Models: {},
-    Collections: {},
-    Views: {},
-    Routers: {},
-    init: function () {
-        'use strict';
-        console.log('Hello from Backbone!');
+require.config({
+    shim: {
+    },
+    paths: {
+        jquery: '../bower_components/jquery/dist/jquery',
+        backbone: '../bower_components/backbone/backbone',
+        underscore: '../bower_components/lodash/dist/lodash'
     }
-};
+});
 
-$(document).ready(function () {
-    'use strict';
-    ProyectoBackbone.init();
+require([
+    'backbone'
+], function (Backbone) {
+    Backbone.history.start();
 });
