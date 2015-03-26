@@ -250,6 +250,34 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+        bowercopy: {
+            vendor: {
+                options: {
+                    destPrefix: '<%= yeoman.app %>/scripts/vendor'
+                },
+                files: {
+                    //TODO: add all the necessary dependencies
+                    'bootstrap/css': 'bootstrap/dist/css'
+                }
+            }
+        },
+        less: {
+            development: {
+                options: {
+                    compress: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'app/styles/less/',
+                        //TODO: change this with current source
+                        src: ['styles.less', 'sprite.less'],
+                        dest: 'app/styles/css/',
+                        ext: '.css'
+                    }
+                ]
+            }
         }
     });
 
