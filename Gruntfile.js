@@ -257,8 +257,11 @@ module.exports = function (grunt) {
                     destPrefix: '<%= yeoman.app %>/scripts/vendor'
                 },
                 files: {
-                    //TODO: add all the necessary dependencies
-                    'bootstrap/css': 'bootstrap/dist/css'
+                    'bootstrap': 'bootstrap/dist',
+                    'backbone': 'backbone/backbone.js',
+                    'requirejs': 'requirejs/require.js',
+                    'underscore': 'underscore/underscore.js',
+                    'jquery': 'jquery/dist/jquery.min.js'
                 }
             }
         },
@@ -307,6 +310,7 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
+            'bowercopy',
             'clean:server',
             'createDefaultTemplate',
             'jst',
@@ -336,6 +340,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', [
+        'bowercopy',
         'clean:dist',
         'createDefaultTemplate',
         'jst',
