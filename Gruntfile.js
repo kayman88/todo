@@ -261,7 +261,8 @@ module.exports = function (grunt) {
                     'backbone': 'backbone/backbone.js',
                     'requirejs': 'requirejs/require.js',
                     'underscore': 'underscore/underscore.js',
-                    'jquery': 'jquery/dist/jquery.min.js'
+                    'jquery': 'jquery/dist/jquery.min.js',
+                    'modernizr': 'modernizr/modernizr.js'
                 }
             }
         },
