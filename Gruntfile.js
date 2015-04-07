@@ -45,11 +45,11 @@ module.exports = function (grunt) {
                     'test/spec/**/*.js'
                 ]
             },
-            jst: {
+            handlebars: {
                 files: [
-                    '<%= yeoman.app %>/scripts/templates/*.ejs'
+                    '<%= yeoman.app %>/scripts/templates/*.hbs'
                 ],
-                tasks: ['jst']
+                tasks: ['handlebars']
             },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
@@ -229,13 +229,13 @@ module.exports = function (grunt) {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
         },
-        jst: {
+        handlebars: {
             options: {
                 amd: true
             },
             compile: {
                 files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
+                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.hbs']
                 }
             }
         },
@@ -303,7 +303,7 @@ module.exports = function (grunt) {
             return grunt.task.run([
                 'clean:server',
                 'createDefaultTemplate',
-                'jst',
+                'handlebars',
                 'connect:test',
                 'open:test',
                 'watch'
@@ -314,7 +314,7 @@ module.exports = function (grunt) {
             'bowercopy',
             'clean:server',
             'createDefaultTemplate',
-            'jst',
+            'handlebars',
             'connect:livereload',
             'open:server',
             'watch'
@@ -326,7 +326,7 @@ module.exports = function (grunt) {
         var testTasks = [
                 'clean:server',
                 'createDefaultTemplate',
-                'jst',
+                'handlebars',
                 'connect:test',
                 'mocha',
             ];
@@ -344,7 +344,7 @@ module.exports = function (grunt) {
         'bowercopy',
         'clean:dist',
         'createDefaultTemplate',
-        'jst',
+        'handlebars',
         'useminPrepare',
         'requirejs',
         'imagemin',

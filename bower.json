@@ -10,5 +10,7 @@
     "modernizr": "~2.7.1",
     "bootstrap": "~3.3.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "handlebars": "~3.0.0"
+  }
 }
